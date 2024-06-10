@@ -9,10 +9,7 @@ import br.com.luiz.screenmatch.service.ConverteDados;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Principal {
@@ -70,6 +67,18 @@ public class Principal {
 
         episodios.forEach(System.out::println);
 
+        System.out.println("Digite o episódio que deseja encontrar: ");
+        var trechoTitulo = sc.nextLine();
+        Optional<Episodio> episodioBuscado = episodios.stream()
+                .filter(e -> e.getTitulo().toUpperCase().contains(trechoTitulo.toUpperCase()))
+                .findFirst();
+        if (episodioBuscado.isPresent()){
+            System.out.println("Episódios relacionados encontrados: ");
+            System.out.println("Temporada: " + episodioBuscado.get());
+        } else {
+            System.out.println("Nenhum episódio encontrado com esse título!");
+        }
+
         System.out.println("A partir de que ano deseja filtrar os episódios?");
         var ano = sc.nextInt();
         sc.nextLine();
@@ -87,6 +96,9 @@ public class Principal {
 
                 ));
 
-
+        Map<Integer, Double> avaliacoesPorTemporada = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0.0)
+                .collect(Collectors.groupingBy(Episodio::getTemporada, Collectors.averagingDouble(Episodio::getAvaliacao)));
+        System.out.println(avaliacoesPorTemporada);
     }
 }
