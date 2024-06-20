@@ -3,8 +3,10 @@ package br.com.luiz.screenmatch.principal;
 import br.com.luiz.screenmatch.model.DadosSerie;
 import br.com.luiz.screenmatch.model.DadosTemporada;
 import br.com.luiz.screenmatch.model.Serie;
+import br.com.luiz.screenmatch.repository.SerieRepository;
 import br.com.luiz.screenmatch.service.ConsumoApi;
 import br.com.luiz.screenmatch.service.ConverteDados;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -17,6 +19,11 @@ public class Principal {
     private final String ENDERECO = "https://omdbapi.com/?t=";
     private final String API_KEY = "&apikey=6585022c";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
+    private SerieRepository repository;
+
+    public Principal(SerieRepository repository) {
+        this.repository = repository;
+    }
 
     public void exibeMenu() {
         var opcao = -1;
@@ -64,7 +71,8 @@ public class Principal {
 
     private void buscarSerieWeb() {
         DadosSerie dados = getDadosSerie();
-        dadosSeries.add(dados);
+        Serie serie = new Serie(dados);
+        repository.save(serie);
         System.out.println(dados);
     }
 
