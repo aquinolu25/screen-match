@@ -1,9 +1,6 @@
 package br.com.luiz.screenmatch.principal;
 
-import br.com.luiz.screenmatch.model.DadosSerie;
-import br.com.luiz.screenmatch.model.DadosTemporada;
-import br.com.luiz.screenmatch.model.Episodio;
-import br.com.luiz.screenmatch.model.Serie;
+import br.com.luiz.screenmatch.model.*;
 import br.com.luiz.screenmatch.repository.SerieRepository;
 import br.com.luiz.screenmatch.service.ConsumoApi;
 import br.com.luiz.screenmatch.service.ConverteDados;
@@ -37,6 +34,7 @@ public class Principal {
                     4 - Buscar série por título
                     5 - Buscar série pelo ator
                     6 - Buscar top 5 séries 
+                    7 - Buscar séries por categoria
                                     
                     0 - Sair
                     """;
@@ -64,12 +62,24 @@ public class Principal {
                 case 6:
                     buscarTop5Series();
                     break;
+                case 7:
+                    buscarSeriePorCategoria();
+                    break;
                 case 0:
                     System.out.println("Finalizando programa...");
                 default:
                     System.out.println("Opção inválida");
             }
         }
+    }
+
+    private void buscarSeriePorCategoria() {
+        System.out.println("Deseja buscar séries de que categoria/gênero? ");
+        var nomeGenero = sc.nextLine();
+        Categoria categoria = Categoria.fromPortugues(nomeGenero);
+        List<Serie> seriesPorCategoria = repository.findByGenero(categoria);
+        System.out.println("Séries da cetegoria " + nomeGenero);
+        seriesPorCategoria.forEach(System.out::println);
     }
 
     private void buscarTop5Series() {
