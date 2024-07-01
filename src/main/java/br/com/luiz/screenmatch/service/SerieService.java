@@ -2,6 +2,7 @@ package br.com.luiz.screenmatch.service;
 
 import br.com.luiz.screenmatch.dto.EpisodioDTO;
 import br.com.luiz.screenmatch.dto.SerieDTO;
+import br.com.luiz.screenmatch.model.Categoria;
 import br.com.luiz.screenmatch.model.Serie;
 import br.com.luiz.screenmatch.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,11 @@ public class SerieService {
                 .collect(Collectors.toList());
     }
 
+
+    public List<SerieDTO> obterSeriesPorGenero(String nomeGenero) {
+        Categoria categoria = Categoria.fromPortugues(nomeGenero);
+        return converteDados(repository.findByGenero(categoria));
+
+    }
 
 }
