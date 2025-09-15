@@ -1,11 +1,13 @@
+import br.com.aquino.screenmatch.modelos.Filme;
+
 public class Principal {
 
     public static void main(String[] args) {
 
         Filme meuFilme = new Filme();
-        meuFilme.nome = "A chave mestre";
-        meuFilme.anoDeLancamento = 2022;
-        meuFilme.duracaoEmMinutos = 180;
+        meuFilme.setNome("A chave mestre");
+        meuFilme.setAnoDeLancamento(2022);
+        meuFilme.setDuracaoEmMinutos(180);
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
