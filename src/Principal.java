@@ -9,6 +9,7 @@ public class Principal {
         meuFilme.setNome("A chave mestre");
         meuFilme.setAnoDeLancamento(2022);
         meuFilme.setDuracaoEmMinutos(180);
+        System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
@@ -23,6 +24,8 @@ public class Principal {
         serie.exibeFichaTecnica();
         serie.setTemporadas(3);
         serie.setEpisodiosPorTemporada(8);
+        serie.setMinutosPorEpisodio(50);
+        System.out.println("Duração para maratonar The white lotus: " + serie.getDuracaoEmMinutos());
 
     }
 }
