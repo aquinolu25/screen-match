@@ -1,3 +1,4 @@
+import br.com.aquino.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.aquino.screenmatch.modelos.Filme;
 import br.com.aquino.screenmatch.modelos.Serie;
 
@@ -26,6 +27,20 @@ public class Principal {
         serie.setEpisodiosPorTemporada(8);
         serie.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar The white lotus: " + serie.getDuracaoEmMinutos());
+
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Avatar");
+        outroFilme.setAnoDeLancamento(2023);
+        outroFilme.setDuracaoEmMinutos(200);
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(serie);
+        System.out.println(calculadora.getTempoTotal());
+
+
+
 
     }
 }
