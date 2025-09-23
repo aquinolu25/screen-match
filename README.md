@@ -9,8 +9,8 @@ O código implementa classes, objetos, herança, polimorfismo, encapsulamento e 
 
 ## 🛠️ Tecnologias Utilizadas  
 - **Java SE**  
-- **JDK 17** (ou versão utilizada)  
-- **IDE** (IntelliJ IDEA / Eclipse / VS Code)  
+- **JDK 17**  
+- **IDE** (IntelliJ IDEA)  
 
 ---
 
