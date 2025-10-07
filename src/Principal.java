@@ -11,8 +11,7 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("A chave mestra");
+        Filme meuFilme = new Filme("A chave mestra");
         meuFilme.setAnoDeLancamento(2022);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
@@ -33,8 +32,7 @@ public class Principal {
         serie.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar The white lotus: " + serie.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
+        Filme outroFilme = new Filme("Avatar");
         outroFilme.setAnoDeLancamento(2023);
         outroFilme.setDuracaoEmMinutos(200);
 
@@ -53,8 +51,7 @@ public class Principal {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        var filmeDoLuiz = new Filme();
-        filmeDoLuiz.setNome("Anora");
+        var filmeDoLuiz = new Filme("Anora");
         filmeDoLuiz.setDuracaoEmMinutos(200);
         filmeDoLuiz.setAnoDeLancamento(2003);
         filmeDoLuiz.avalia(10);
@@ -67,6 +64,8 @@ public class Principal {
         System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
         System.out.println(listaDeFilmes);
         System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
+
+
 
     }
 }
