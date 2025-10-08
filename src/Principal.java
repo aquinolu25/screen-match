@@ -11,8 +11,7 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        Filme meuFilme = new Filme("A chave mestra");
-        meuFilme.setAnoDeLancamento(2022);
+        Filme meuFilme = new Filme("A chave mestra", 2022);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
@@ -23,17 +22,14 @@ public class Principal {
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
 
-        Serie serie = new Serie();
-        serie.setNome("The white lotus");
-        serie.setAnoDeLancamento(2024);
+        Serie serie = new Serie("The white lotus",2024 );
         serie.exibeFichaTecnica();
         serie.setTemporadas(3);
         serie.setEpisodiosPorTemporada(8);
         serie.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar The white lotus: " + serie.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme("Avatar");
-        outroFilme.setAnoDeLancamento(2023);
+        Filme outroFilme = new Filme("Avatar", 2023);
         outroFilme.setDuracaoEmMinutos(200);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
@@ -51,9 +47,8 @@ public class Principal {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        var filmeDoLuiz = new Filme("Anora");
+        var filmeDoLuiz = new Filme("Anora", 2003);
         filmeDoLuiz.setDuracaoEmMinutos(200);
-        filmeDoLuiz.setAnoDeLancamento(2003);
         filmeDoLuiz.avalia(10);
 
         ArrayList<Filme> listaDeFilmes = new ArrayList<>();
